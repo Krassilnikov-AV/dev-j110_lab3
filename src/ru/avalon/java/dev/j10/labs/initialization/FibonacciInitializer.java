@@ -20,28 +20,28 @@ import ru.avalon.java.dev.j10.labs.Initializer;
  */
 public class FibonacciInitializer implements Initializer {
 
-   
-    @Override
-    public void initialize(int[] array) {
-        if (array.length == 0){
-            System.out.println("массив пуст");
-          return;  
-        }
-        int i;
-        array [0] = 0;
-        array [1] = 1;
-        for (i = 2; i < array.length; i++){
-            array[i]=array[i - 1] + array [i - 2];
-        }             
-    }
-}
-        
- /**
+    /**
      * Выполняет инициализацию массива значениями
      * последовательности Фибоначчи.
      *
      * @param array массив, подлежащий инициализации
      */
-/*
+
+    @Override
+    public void initialize(int[] array) {
+        /*
          * TODO(Студент): Реализовать метод initialize класса FibonacciInitializer
          */
+       /** С помощью цикла заполним значениями до 2го елемента массив
+        *  создав условие > 1, проинициализируем массив оставшихся элементов согласно
+        * заданию, создав массив из суммы пары предыдущих чисел (Фиббоначи)
+        */
+      
+       for(int i = 0; i < array.length; i++) {
+           array[i] = i;
+             if(i > 1) {
+                 array[i]= array[i-2] + array[i-1];
+             }
+        }   
+    }
+}
